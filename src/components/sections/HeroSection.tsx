@@ -21,12 +21,12 @@ export default function HeroSection() {
         <Image
           src={fireIMG}
           alt='fire'
-          className='absolute -right-5 -bottom-5'
+          className='absolute -right-5 -bottom-5 select-none'
         />
       </div>
 
       <div className='space-y-4'>
-        <h1 className='text-[15vw] md:text-8xl font-bold leading-tight'>Let’s <span className='text-main-red'>grill it</span> – where flavor meets fire</h1>
+        <h1 className='text-[15vw] md:text-8xl font-bold leading-tight select-none'>Let’s <span className='text-main-red'>grill it</span> – where flavor meets fire</h1>
 
         <div className='flex items-center gap-4'>
           <Button variant='outlined-foreground'>Menu <FiMenu size={20}/></Button>
