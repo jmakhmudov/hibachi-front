@@ -1,7 +1,5 @@
 'use server'
 
-import { cookies } from "next/headers";
-
 const baseURL = process.env.API_URL || '';
 
 interface FetchOptions extends RequestInit {

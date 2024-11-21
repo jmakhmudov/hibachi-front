@@ -1,4 +1,3 @@
-import { LocaleType } from "@/i18n/routing";
 import fetchApi from ".";
 
 export const featuredListApi = {
@@ -7,12 +6,9 @@ export const featuredListApi = {
       method: 'GET',
     });
   },
-  getListDetail: async (key: string, lang: LocaleType) => {
-    const params = new URLSearchParams({
-      lang,
-    });
+  getListDetail: async (key: string) => {
 
-    return fetchApi(`/v1/featured-list/${key}?${params.toString()}`, {
+    return fetchApi(`/v1/featured-list/${key}`, {
       method: 'GET',
     });
   },
