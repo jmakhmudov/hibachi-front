@@ -8,10 +8,10 @@ import Button from '../ui/button'
 export default function HeroSection() {
 
   return (
-    <section className='space-y-5 mt-5'>
-      <div className='relative'>
+    <section className='flex flex-col md:flex-row justify-between items-center gap-5'>
+      <div className='relative w-full h-full md:order-2'>
         <video
-          className="h-[50vh] w-full object-cover rounded-2xl"
+          className="h-[50vh] md:h-[80vh] w-full object-cover rounded-2xl"
           src="/videos/banner.mp4"
           autoPlay
           muted
@@ -25,8 +25,8 @@ export default function HeroSection() {
         />
       </div>
 
-      <div className='space-y-4'>
-        <h1 className='text-[15vw] md:text-8xl font-bold leading-tight select-none'>Let’s <span className='text-main-red'>grill it</span> – where flavor meets fire</h1>
+      <div className='space-y-4 md:space-y-10'>
+        <h1 className='text-[15vw] md:text-[8vw] font-bold leading-tight select-none'>Let’s <span className='text-main-red'>grill it</span> – where flavor meets fire</h1>
 
         <div className='flex items-center gap-4'>
           <Button variant='outlined-foreground'>Menu <FiMenu size={20}/></Button>

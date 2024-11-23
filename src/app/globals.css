@@ -9,10 +9,14 @@
   --foreground: #1F2820;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: "Inter", sans-serif;
   width: 100dvw;
-  overflow-y: hidden;
+  overflow-x: hidden;
 }

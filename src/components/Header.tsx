@@ -29,16 +29,33 @@ export default function Header() {
         </div>
       </Link>
 
-      <button onClick={() => setMenuIsOpen(!menuIsOpen)}>
+      <DesktopNavbar />
+
+      <Button className='hidden md:block' variant='outlined-red'>Free Quote</Button>
+
+      <button className='block md:hidden' onClick={() => setMenuIsOpen(!menuIsOpen)}>
         {
           menuIsOpen ?
-          <CgClose size={35} />
-          :
-          <FiMenu size={35} />
+            <CgClose size={35} />
+            :
+            <FiMenu size={35} />
         }
       </button>
 
     </header>
+  )
+}
+
+function DesktopNavbar() {
+  return (
+    <nav className='hidden md:block'>
+      <ul className='font-medium flex items-center gap-10 text-lg'>
+        <li>Locations</li>
+        <li>About Us</li>
+        <li>FAQ</li>
+        <li>Contact Us</li>
+      </ul>
+    </nav>
   )
 }
 

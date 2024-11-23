@@ -19,7 +19,7 @@ async function fetchApi(endpoint: string, options: FetchOptions = {}) {
   };
 
   try {
-    const response = await fetch(`${baseURL}${endpoint}`, config);
+    const response = await fetch(`${baseURL}/api${endpoint}`, config);
 
     if (!response.ok) {
       const errorData = await response.json();
