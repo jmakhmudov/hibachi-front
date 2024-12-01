@@ -14,9 +14,17 @@
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
   font-family: "Inter", sans-serif;
   width: 100dvw;
   overflow-x: hidden;
+  min-height: 100dvh;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }

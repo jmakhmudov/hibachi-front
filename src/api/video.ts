@@ -1,7 +1,7 @@
 import fetchApi from ".";
 
 export const videoAPI = {
-  getVideo: async () => {
+  getVideos: async () => {
     return fetchApi('/web_act/videos/', {
       method: 'GET'
     });

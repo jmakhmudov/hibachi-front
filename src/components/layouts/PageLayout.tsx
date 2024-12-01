@@ -2,15 +2,19 @@ interface PageLayoutProps {
   title: string;
   children: React.ReactNode;
   content?: React.ReactNode;
+  form?: boolean;
+  id?: string;
 }
 
 export default function PageLayout({
   title,
   children,
-  content
+  content,
+  form,
+  id
 }: PageLayoutProps) {
   return (
-    <section className="flex items-center gap-5 justify-between">
+    <section id={id} data-form={form} className="flex items-center justify-between w-full data-[form=true]:md:px-[20vw]">
       <div className="space-y-5 w-full">
         <h2 className="font-bold text-3xl md:text-5xl">{title}</h2>
         <div className="w-full">

@@ -7,8 +7,8 @@ export default function Input({
   ...props
 }: InputProps) {
   return (
-    <div>
-      <label htmlFor={props.name}>{label}{props.required && <span className="text-main-red">*</span>}</label>
+    <div className="grid">
+      <label htmlFor={props.name} className="text-sm md:text-base">{label}{props.required && <span className="text-main-red">*</span>}</label>
       <input
         {...props}
         placeholder={label}

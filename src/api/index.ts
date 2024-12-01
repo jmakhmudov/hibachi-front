@@ -7,23 +7,12 @@ interface FetchOptions extends RequestInit {
 }
 
 async function fetchApi(endpoint: string, options: FetchOptions = {}) {
-  const { headers, ...restOptions } = options;
-
-  const config: RequestInit = {
-    ...restOptions,
-    headers: {
-      'Content-Type': 'application/json',
-      ...headers,
-    },
-    credentials: 'include',
-  };
-
   try {
-    const response = await fetch(`${baseURL}/api${endpoint}`, config);
+    const response = await fetch(`${baseURL}/api${endpoint}`, options);
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData?.message || 'An error occurred');
+      console.log(errorData);
     }
 
     return response.json();

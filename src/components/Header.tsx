@@ -15,7 +15,7 @@ export default function Header() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   return (
-    <header className='py-5 flex items-center justify-between bg-background relative'>
+    <header className='py-5 flex items-center justify-between bg-background relative mb-10'>
       {
         menuIsOpen &&
         <MobileMenuNavbar />
@@ -31,7 +31,9 @@ export default function Header() {
 
       <DesktopNavbar />
 
-      <Button className='hidden md:block' variant='outlined-red'>Free Quote</Button>
+      <Link href={'/estimate'}>
+        <Button className='hidden md:block' variant='outlined-red'>Free Quote</Button>
+      </Link>
 
       <button className='block md:hidden' onClick={() => setMenuIsOpen(!menuIsOpen)}>
         {
@@ -48,9 +50,11 @@ export default function Header() {
 
 function DesktopNavbar() {
   return (
-    <nav className='hidden md:block'>
+    <nav className='hidden md:block select-none'>
       <ul className='font-medium flex items-center gap-10 text-lg'>
-        <li>Locations</li>
+        <li>
+          <Link href={"/locations"}>Locations</Link>
+        </li>
         <li>About Us</li>
         <li>FAQ</li>
         <li>Contact Us</li>
@@ -69,7 +73,9 @@ function MobileMenuNavbar() {
         <li>Contact Us</li>
       </ul>
 
-      <Button variant='outlined-red'>Free Quote</Button>
+      <Link href={'/estimate'}>
+        <Button variant='outlined-red'>Free Quote</Button>
+      </Link>
     </nav>
   )
 }

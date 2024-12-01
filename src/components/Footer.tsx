@@ -5,7 +5,7 @@ import logo from '../../public/logo.svg'
 
 export default function Footer() {
   return (
-    <footer className="bg-foreground mt-20 px-5 md:px-12 text-background py-5">
+    <footer className="bg-foreground mt-20 px-5 md:px-12 text-background py-5 w-screen">
       <div className="flex flex-row justify-between items-start md:items-center gap-5">
         <Link href='/' className='flex items-center gap-2 select-none'>
           <div className="p-2 bg-background rounded-full">

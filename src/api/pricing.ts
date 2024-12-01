@@ -1,10 +1,13 @@
 import fetchApi from ".";
 
 export const pricingAPI = {
-  estimateCost: async (formData: FormData) => {
+  estimateCost: async (body: string) => {
     return fetchApi('/web_act/estimate-cost/', {
       method: 'POST',
-      body: formData
+      body: body,
+      headers: {
+        'Content-Type': 'application/json'
+      }
     });
   },
 

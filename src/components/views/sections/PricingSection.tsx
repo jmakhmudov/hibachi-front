@@ -1,6 +1,6 @@
 import { pricingAPI } from "@/api/pricing";
-import PageLayout from "../layouts/PageLayout";
-import PricingCard from "../PricingCard";
+import PageLayout from "../../layouts/PageLayout";
+import PricingCard from "../../PricingCard";
 import { PricingDetails } from "@/types";
 
 export default async function PricingSection() {

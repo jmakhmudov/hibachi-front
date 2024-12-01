@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PageLayout from "../layouts/PageLayout";
+import PageLayout from "../../layouts/PageLayout";
 
 import logoIMG from '@/../public/logo.png';
 
@@ -15,7 +15,7 @@ export default function HowItWorksSection() {
           height={400}
         />}
     >
-      <div className="space-y-5 text-lg 2xl:text-2xl">
+      <div className="space-y-5 text-base md:text-lg 2xl:text-2xl">
         <p>Bamboo Hibachi brings the hibachi experience to your backyard!</p>
 
         <div>
