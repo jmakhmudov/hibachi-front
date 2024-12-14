@@ -23,7 +23,7 @@ export default function MealCard({
         <div className="bg-main-green text-white p-1 px-2 rounded-lg font-semibold text-xs md:text-sm text-right">
           {
             meal.price ?
-            `$ ${meal.price.toLocaleString("us")}`
+            `$ ${meal.price.toLocaleString()}`
             :
             '2 pp'
           }

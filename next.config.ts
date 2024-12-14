@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
         destination: `${API_URL}/media/:path*/`,
       },
     ]
-  },
+  }
 };
 
 export default nextConfig;

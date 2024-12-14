@@ -55,9 +55,15 @@ function DesktopNavbar() {
         <li>
           <Link href={"/locations"}>Locations</Link>
         </li>
-        <li>About Us</li>
-        <li>FAQ</li>
-        <li>Contact Us</li>
+        <li>
+          <Link href={"/about-us"}>About Us</Link>
+        </li>
+        <li>
+          <Link href={"/faq"}>FAQ</Link>
+        </li> 
+        <li>
+          <Link href={"/#contacts"}>Contact Us</Link>
+        </li>
       </ul>
     </nav>
   )

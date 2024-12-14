@@ -47,7 +47,7 @@ export default function AppointmentForm({
       fetchTimeSlots()
     })
 
-  }, [date, state])
+  }, [date, state, locationId])
 
   return (
     <form className=" relative grid grid-cols-1 gap-10" action={confirm}>
@@ -146,9 +146,8 @@ export default function AppointmentForm({
               }
               {
                 meals.additional_meals.map(meal => (
-                  <div className="flex items-center gap-3">
+                  <div key={meal.name} className="flex items-center gap-3">
                     <Checkbox
-                      key={meal.name}
                       label={meal.name}
                       value={meal.name}
                       name="orders"

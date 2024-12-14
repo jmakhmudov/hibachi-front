@@ -1,18 +1,13 @@
-import { bookingAPI } from "@/api/booking";
-import { locationsAPI } from "@/api/locations";
-import { menuAPI } from "@/api/menu";
+import {locationsAPI} from "@/api/locations";
+import {menuAPI} from "@/api/menu";
 import PageLayout from "@/components/layouts/PageLayout";
 import AppointmentForm from "@/components/views/AppointmentForm";
-import { LocationType } from "@/types";
-import { notFound } from "next/navigation";
+import {LocationType} from "@/types";
+import {notFound} from "next/navigation";
 
-export default async function AppointmentPage({
-  params
-}: {
-  params: {
-    locationId: string
-  }
-}) {
+type Params = { params: Promise<{ locationId: string }> };
+
+export default async function AppointmentPage({params}: Params) {
   const locations: LocationType[] = await locationsAPI.getAll();
   const locationId = Number((await params).locationId);
 
@@ -37,7 +32,7 @@ export default async function AppointmentPage({
           <div className="text-sm opacity-50">{location.zip_code}</div>
         </div>
 
-        <AppointmentForm meals={meals} locationId={location.id} />
+        <AppointmentForm meals={meals} locationId={location.id}/>
       </PageLayout>
     </div>
   )

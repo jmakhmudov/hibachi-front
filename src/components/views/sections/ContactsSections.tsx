@@ -14,7 +14,7 @@ export default function ContactsSection() {
   });
 
   return (
-    <PageLayout title="Contact Us">
+    <PageLayout title="Contact Us" id="contacts">
       <div className="w-full">
         <p className="md:w-1/3">Have questions or need assistance? Reach out using the form below, and our team will get back to you promptly. We&#39re here to help!</p>
 

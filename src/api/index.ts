@@ -8,7 +8,11 @@ interface FetchOptions extends RequestInit {
 
 async function fetchApi(endpoint: string, options: FetchOptions = {}) {
   try {
-    const response = await fetch(`${baseURL}/api${endpoint}`, options);
+    const response = await fetch(`${baseURL}/api${endpoint}`, {
+      ...options,
+      cache: 'no-store',
+    });
+
 
     if (!response.ok) {
       const errorData = await response.json();
