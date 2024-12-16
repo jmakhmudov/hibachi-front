@@ -1,0 +1,24 @@
+services:
+  hibachi-front:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+    env_file:
+      - .env.local
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+  nginx:
+      restart: always
+      build:
+          context: ./nginx
+      command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+      ports:
+        - "80:80"
+        - "443:443"
