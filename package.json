@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
@@ -16,6 +17,7 @@
     "framer-motion": "^11.13.5",
     "lucide-react": "^0.460.0",
     "next": "15.0.3",
+    "next-sitemap": "^4.2.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-day-picker": "^8.10.1",
     "react-dom": "19.0.0-rc-66855b96-20241106",

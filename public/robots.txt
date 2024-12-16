@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.hibachibybamboo.com
+
+# Sitemaps
+Sitemap: https://www.hibachibybamboo.com/sitemap.xml
