@@ -15,7 +15,9 @@ export default function Header() {
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   return (
-    <header className='py-5 flex items-center justify-between bg-background relative mb-10'>
+    <header className='py-5 flex items-center justify-between bg-background relative mb-10' onClick={() => {
+      if (menuIsOpen) setMenuIsOpen(false)
+    }}>
       {
         menuIsOpen &&
         <MobileMenuNavbar />
@@ -32,7 +34,7 @@ export default function Header() {
       <DesktopNavbar />
 
       <Link href={'/estimate'}>
-        <Button className='hidden md:block' variant='outlined-red'>Free Quote</Button>
+        <Button className='hidden md:block' variant='outlined-red'>Estimate</Button>
       </Link>
 
       <button className='block md:hidden' onClick={() => setMenuIsOpen(!menuIsOpen)}>
@@ -60,7 +62,7 @@ function DesktopNavbar() {
         </li>
         <li>
           <Link href={"/faq"}>FAQ</Link>
-        </li> 
+        </li>
         <li>
           <Link href={"/#contacts"}>Contact Us</Link>
         </li>
@@ -71,16 +73,24 @@ function DesktopNavbar() {
 
 function MobileMenuNavbar() {
   return (
-    <nav className='bg-background md:hidden absolute top-full select-none space-y-10 py-10 z-50 w-full'>
-      <ul className='grid gap-4 font-medium'>
-        <li>Locations</li>
-        <li>About Us</li>
-        <li>FAQ</li>
-        <li>Contact Us</li>
+    <nav className='bg-background md:hidden absolute top-full select-none py-10 z-50 w-full'>
+      <ul className='grid gap-4 font-medium mb-5'>
+        <li>
+          <Link href={"/locations"}>Locations</Link>
+        </li>
+        <li>
+          <Link href={"/about-us"}>About Us</Link>
+        </li>
+        <li>
+          <Link href={"/faq"}>FAQ</Link>
+        </li>
+        <li>
+          <Link href={"/#contacts"}>Contact Us</Link>
+        </li>
       </ul>
 
       <Link href={'/estimate'}>
-        <Button variant='outlined-red'>Free Quote</Button>
+        <Button variant='outlined-red'>Estimate</Button>
       </Link>
     </nav>
   )

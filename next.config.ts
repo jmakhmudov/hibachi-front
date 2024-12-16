@@ -7,14 +7,22 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/api/:path*',
-        destination: `${API_URL}/:path*/`,
+        destination: `${API_URL}/api/:path*/`,
       },
       {
         source: '/media/:path*',
-        destination: `${API_URL}/media/:path*/`,
+        destination: `${API_URL}/media/:path*`,
       },
     ]
-  }
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*',
+      },
+    ],
+  },
 };
 
 export default nextConfig;

@@ -7,11 +7,17 @@ import { heardBy } from "@/utils/constants";
 import { useActionState, useEffect, useState, useTransition } from "react";
 import Button from "../ui/button";
 import { Calendar } from "../ui/calendar";
-import Checkbox from "../ui/checkbox";
 import Input from "../ui/input";
 import Select from "../ui/select";
 import TextArea from "../ui/textarea";
 import TimeSlot from "../ui/time-slot";
+
+const convertTo12HourFormat = (time: string): string => {
+  const [hour, minute] = time.split(":").map(Number);
+  const period = hour >= 12 ? "PM" : "AM";
+  const adjustedHour = hour % 12 || 12;
+  return `${adjustedHour}:${minute.toString().padStart(2, "0")} ${period}`;
+};
 
 export default function AppointmentForm({
   locationId,
@@ -33,13 +39,23 @@ export default function AppointmentForm({
     data: {} as AppointmentType
   });
 
+  console.log(date)
   useEffect(() => {
     setSelectedTimeId(0)
 
     setTranstion(() => {
       async function fetchTimeSlots() {
         if (date) {
-          const time_slots = await bookingAPI.getTimeSlots(date.toLocaleDateString(), locationId);
+          const time_slots = (await bookingAPI.getTimeSlots(date.toLocaleDateString(), locationId))
+            .sort((a: TimeSlotType, b: TimeSlotType) => {
+              const timeA = a.time.split(":").map(Number);
+              const timeB = b.time.split(":").map(Number);
+              return timeA[0] - timeB[0] || timeA[1] - timeB[1];
+            })
+            .map((slot: TimeSlotType) => ({
+              ...slot,
+              time: convertTo12HourFormat(slot.time),
+            }));
           setTimeSlots(time_slots)
         }
       }
@@ -49,16 +65,19 @@ export default function AppointmentForm({
 
   }, [date, state, locationId])
 
+  console.log(timeSlots)
+
   return (
     <form className=" relative grid grid-cols-1 gap-10" action={confirm}>
-      <div className="flex flex-col md:flex-row justify-between gap-2 h-fit w-fit">
+      <div className="flex flex-col md:flex-row justify-between gap-2 h-fit w-fit md:w-full md:max-w-[600px]">
         <Calendar
           mode="single"
           fromDate={new Date()}
           selected={date}
-          onSelect={setDate}
+          onSelect={(date) => setDate(date)}
           className="rounded-md border-2 border-primary w-fit bg-white h-fit"
         />
+
         <div className="bg-white w-full rounded-md p-4 border-2 border-primary h-fit">
           <div className="font-bold mb-2">Time Slots</div>
 
@@ -66,7 +85,7 @@ export default function AppointmentForm({
             isPending ?
               <div>loading</div>
               :
-              <div className="grid grid-cols-[repeat(auto-fill,minmax(70px,1fr))] gap-1">
+              <div className="grid grid-cols-[repeat(auto-fill,minmax(80px,1fr))] gap-1">
                 {
                   timeSlots.length > 0 ?
                     timeSlots.map(slot => (
@@ -74,7 +93,7 @@ export default function AppointmentForm({
                         selected={selectedTimeId === slot.id}
                         onClick={() => setSelectedTimeId(slot.id)}
                         timeSlot={slot}
-                        key={slot.start_time}
+                        key={slot.time}
                       />
                     ))
                     :
@@ -131,33 +150,44 @@ export default function AppointmentForm({
             required
           />
 
+          <hr />
+
           <div>
-            <div>Orders<span className="text-main-red">*</span></div>
-            <div className="space-y-3 mt-2">
-              {
-                meals.default_meals.map(meal => (
-                  <Checkbox
-                    key={meal.name}
-                    label={meal.name}
-                    value={meal.name}
-                    name="orders"
-                  />
-                ))
-              }
-              {
-                meals.additional_meals.map(meal => (
-                  <div key={meal.name} className="flex items-center gap-3">
-                    <Checkbox
-                      label={meal.name}
-                      value={meal.name}
-                      name="orders"
-                    />
-                    <div className="text-main-red text-sm font-semibold">${Number(meal.price).toLocaleString()}/person</div>
-                  </div>
-                ))
-              }
+            <div className="space-y-4 mt-2">
+              <div>
+                <div className="font-medium">Proteins (2 per person)</div>
+                <ul className="list-disc pl-5 text-sm">
+                  {
+                    meals.default_meals.map(meal => (
+                      <li key={meal.name}>{meal.name}</li>
+                    ))
+                  }
+                </ul>
+              </div>
+
+              <div className="">
+                <div className="font-medium">Upgrades</div>
+                <ul className="list-disc pl-5 text-sm">
+                  {
+                    meals.additional_meals.map(meal => (
+                      <li key={meal.name}>{meal.name} <span className="text-main-red font-semibold ml-2">${Number(meal.price).toLocaleString("us")}</span></li>
+                    ))
+                  }
+                </ul>
+              </div>
+
+              <div>
+                <TextArea
+                  label="Food order"
+                  name="orders"
+                  required
+                />
+                <div className="text-xs md:text-sm opacity-50 mt-1">EXAMPLE: (Party of 10 adults & 5 kids)- Adults: 10 chicken, 5 steak, 5 shrimp. Kids: 5 chicken, 5 steak.</div>
+              </div>
             </div>
           </div>
+
+          <hr />
 
           <TextArea
             label="Additional message"
@@ -193,7 +223,8 @@ export default function AppointmentForm({
             required
           />
 
-          <input type="text" name="time_slot" readOnly value={selectedTimeId} className="hidden" />
+          <input type="text" name="timeslot_id" readOnly value={selectedTimeId} className="hidden" />
+          <input type="text" name="date" value={date?.toLocaleDateString()} className="hidden" />
 
           <Button type="submit">Confirm Appointment</Button>
         </div>

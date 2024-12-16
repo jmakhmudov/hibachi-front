@@ -3,10 +3,12 @@ import Image from "next/image"
 
 interface MealCardProps {
   meal: Meal
+  className?: string
 }
 
 export default function MealCard({
-  meal
+  meal,
+  className
 }: MealCardProps) {
   return (
     <div className="bg-white rounded-2xl p-3.5 space-y-3 select-none">
@@ -19,15 +21,15 @@ export default function MealCard({
       />
 
       <div className="flex items-center justify-between">
-        <div className="font-semibold">{meal.name}</div>
-        <div className="bg-main-green text-white p-1 px-2 rounded-lg font-semibold text-xs md:text-sm text-right">
-          {
-            meal.price ?
-            `$ ${meal.price.toLocaleString()}`
-            :
-            '2 pp'
-          }
-        </div>
+        <div className={`font-semibold ${className}`}>{meal.name}</div>
+        {
+          meal.price &&
+          <div className="bg-main-green text-white p-1 px-2 rounded-lg font-semibold text-xs md:text-sm text-right">
+            {
+              `$ ${meal.price.toLocaleString()}`
+            }
+          </div>
+        }
       </div>
     </div>
   )

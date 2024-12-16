@@ -20,15 +20,20 @@ export interface LocationType {
   id: number;
   name: string;
   zip_code: string;
+  image: string;
 }
 
 export interface TimeSlotType {
   id: number;
-  location: number;
-  date: string;
-  start_time: number;
-  is_available: boolean;
+  day_of_week: string;
+  time: string;
+  available: number;
+  capacity: number;
+  reserved: number;
+  location_name: string;
+  location_slug: string;
 }
+
 
 export interface AppointmentType {
   id: number;

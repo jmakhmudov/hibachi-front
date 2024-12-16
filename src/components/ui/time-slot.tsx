@@ -11,7 +11,7 @@ export default function TimeSlot({
   selected,
   ...props
 }: TimeSlotProps) {
-  const time = timeSlot.start_time
+  const time = timeSlot.time
 
   return (
     <button

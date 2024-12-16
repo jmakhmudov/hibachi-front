@@ -1,6 +1,7 @@
 import { locationsAPI } from "@/api/locations"
 import PageLayout from "@/components/layouts/PageLayout";
 import { LocationType } from "@/types";
+import Image from "next/image";
 import Link from "next/link";
 
 export default async function LocationsPage() {
@@ -24,10 +25,18 @@ function LocationItem({
 }: {
   location: LocationType
 }) {
+  
   return (
-    <div className="select-none w-fit md:w-[550px] cursor-pointer ">
-      <Link href={`/appointment/${location.id}`} className="text-5xl md:text-8xl text-main-red hover:text-primary transition-all duration-150 font-bold">{location.name}</Link>
+    <Link href={`/appointment/${location.id}`} className="select-none w-full md:w-[550px] cursor-pointer ">
+      <Image 
+        alt={location.name}
+        src={location.image}
+        width={200}
+        height={200}
+        className="w-full rounded-lg "
+      />
+      <div className="text-5xl md:text-8xl mt-4 text-main-red hover:text-primary transition-all duration-150 font-bold">{location.name}</div>
       <div className="opacity-50">zip-code: {location.zip_code}</div>
-    </div>
+    </Link>
   )
 }
