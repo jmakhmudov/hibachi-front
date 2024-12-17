@@ -19,6 +19,20 @@ const convertTo12HourFormat = (time: string): string => {
   return `${adjustedHour}:${minute.toString().padStart(2, "0")} ${period}`;
 };
 
+function toLocaleISOString(date: Date) {
+  function pad(number: any) {
+      if (number < 10) {
+          return '0' + number;
+      }
+      return number;
+  }
+
+  return date.getFullYear() +
+      '-' + pad(date.getMonth() + 1) +
+      '-' + pad(date.getDate())
+
+}
+
 export default function AppointmentForm({
   locationId,
   meals
@@ -46,7 +60,7 @@ export default function AppointmentForm({
     setTranstion(() => {
       async function fetchTimeSlots() {
         if (date) {
-          const time_slots = (await bookingAPI.getTimeSlots(date.toLocaleDateString(), locationId))
+          const time_slots = (await bookingAPI.getTimeSlots(toLocaleISOString(date), locationId))
             .sort((a: TimeSlotType, b: TimeSlotType) => {
               const timeA = a.time.split(":").map(Number);
               const timeB = b.time.split(":").map(Number);

@@ -16,7 +16,7 @@ async function fetchApi(endpoint: string, options: FetchOptions = {}) {
 
     if (!response.ok) {
       const errorData = await response.json();
-      console.log(errorData);
+      console.log('error', errorData);
     }
 
     return response.json();
