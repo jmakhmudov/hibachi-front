@@ -58,6 +58,9 @@ function DesktopNavbar() {
           <Link href={"/locations"}>Locations</Link>
         </li>
         <li>
+          <Link href={"/#menu"}>Menu</Link>
+        </li>
+        <li>
           <Link href={"/about-us"}>About Us</Link>
         </li>
         <li>
@@ -77,6 +80,9 @@ function MobileMenuNavbar() {
       <ul className='grid gap-4 font-medium mb-5'>
         <li>
           <Link href={"/locations"}>Locations</Link>
+        </li>
+        <li>
+          <Link href={"/#menu"}>Menu</Link>
         </li>
         <li>
           <Link href={"/about-us"}>About Us</Link>
