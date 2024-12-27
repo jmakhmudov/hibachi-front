@@ -53,7 +53,7 @@ export default function AppointmentForm({
     data: {} as AppointmentType
   });
 
-  console.log(date)
+  if (date) console.log(toLocaleISOString(date))
   useEffect(() => {
     setSelectedTimeId(0)
 
@@ -119,7 +119,7 @@ export default function AppointmentForm({
       </div>
 
       {
-        !!selectedTimeId &&
+        (!!selectedTimeId && date) &&
         <div className="pb-56 space-y-3">
           <Input
             label="First Name"
@@ -238,7 +238,7 @@ export default function AppointmentForm({
           />
 
           <input type="text" name="timeslot_id" readOnly value={selectedTimeId} className="hidden" />
-          <input type="text" name="date" value={date?.toLocaleDateString()} className="hidden" />
+          <input type="text" name="date" value={toLocaleISOString(date)} className="hidden" />
 
           <Button type="submit">Confirm Appointment</Button>
         </div>
