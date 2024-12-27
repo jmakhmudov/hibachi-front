@@ -18,11 +18,7 @@ export default async function Home() {
 
       <ProteinSection />
 
-      <AdditionalMealsSection />
-
       <PricingSection />
-
-      <SpecialsSection />
 
       <ContactsSection />
     </div>

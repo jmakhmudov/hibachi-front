@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import logo from '../../public/logo.svg'
+import logo from '../../public/logo.webp'
 
 import { FiMenu } from "react-icons/fi";
 import { CgClose } from "react-icons/cg";
@@ -24,7 +24,7 @@ export default function Header() {
       }
 
       <Link href='/' className='flex items-center gap-2 select-none'>
-        <Image src={logo} alt="logo" width={60} height={60} />
+        <Image src={logo} alt="logo" className='rounded-full' width={60} height={60} />
         <div className='-space-y-1 text-lg'>
           <div>BAMBOO</div>
           <div className='font-bold'>HIBACHI</div>

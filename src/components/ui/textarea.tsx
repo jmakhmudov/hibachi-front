@@ -13,7 +13,7 @@ export default function TextArea({
       <textarea
         {...props}
         placeholder={label}
-        className={`border-2 border-primary rounded-2xl bg-white p-4 py-2 w-full ${props.className}`}
+        className={`border-2 border-primary rounded-2xl bg-white bg-opacity-15 p-4 py-2 w-full ${props.className}`}
       ></textarea>
     </div>
   )

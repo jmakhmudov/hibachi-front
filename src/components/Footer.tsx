@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import logo from '../../public/logo.svg'
+import logo from '../../public/logo.webp'
 
 export default function Footer() {
   return (
-    <footer className="bg-foreground mt-20 px-5 md:px-12 text-background py-5 w-screen">
+    <footer className="bg-background mt-20 px-5 md:px-12 text-foreground py-5 w-screen">
       <div className="flex flex-row justify-between items-start md:items-center gap-5">
         <Link href='/' className='flex items-center gap-2 select-none'>
-          <div className="p-2 bg-background rounded-full">
+          <div className="bg-background rounded-full overflow-hidden">
             <Image src={logo} alt="logo" width={50} height={50} />
           </div>
           <div className='-space-y-1 text-lg'>

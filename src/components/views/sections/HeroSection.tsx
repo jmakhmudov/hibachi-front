@@ -40,7 +40,7 @@ export default function HeroSection({
       </div>
 
       <div className='space-y-4 md:space-y-10'>
-        <h1 className='text-[15vw] md:text-[8vw] 2xl:text-[150px] font-bold leading-tight select-none'>Let’s <span
+        <h1 className='text-[15vw] md:text-[6vw] 2xl:text-9xl font-bold leading-tight select-none'>Let’s <span
           className='text-main-red'>grill it</span> – where flavor meets fire</h1>
 
         <div className='flex items-center gap-4 '>

@@ -168,7 +168,7 @@ export default function EstimateForm({
         value={JSON.stringify(selectedMeals)}
       />
 
-      <div className="bg-foreground p-4 rounded-lg text-white space-y-5">
+      <div className="bg-foreground p-4 rounded-lg text-background space-y-5">
         <div>
           <div className="font-medium text-sm md:text-base">Traveling fees</div>
           <div className="font-bold text-4xl">$ {travelingFees.toFixed(0)}</div>

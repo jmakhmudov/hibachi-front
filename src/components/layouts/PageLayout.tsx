@@ -16,7 +16,7 @@ export default function PageLayout({
   return (
     <section id={id} data-form={form} className="flex items-center justify-between w-full data-[form=true]:md:px-[20vw]">
       <div className="space-y-5 w-full">
-        <h2 className="font-bold text-3xl md:text-5xl">{title}</h2>
+        <h2 className="text-3xl md:text-5xl text-main-red pathway font-black uppercase">{title}</h2>
         <div className="w-full">
           {children}
         </div>

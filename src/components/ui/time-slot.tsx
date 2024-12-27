@@ -17,7 +17,7 @@ export default function TimeSlot({
     <button
       {...props}
       data-selected={selected}
-      className="p-1.5 px-3 border-2 border-primary rounded-md font-semibold data-[selected=true]:bg-primary data-[selected=true]:text-white"
+      className="p-1.5 px-3 border-2 border-white rounded-md font-semibold data-[selected=true]:bg-main-red data-[selected=true]:text-black"
     >
       {time}
     </button>

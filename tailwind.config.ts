@@ -14,7 +14,7 @@ export default {
   			foreground: 'var(--foreground)',
   			primary: "#1F2820",
   			main: {
-  				red: '#C72B11',
+  				red: '#50CF3A',
   				green: '#879358'
   			},
   			card: {

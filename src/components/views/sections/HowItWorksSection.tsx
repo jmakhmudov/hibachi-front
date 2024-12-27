@@ -1,19 +1,20 @@
 import Image from "next/image";
 import PageLayout from "../../layouts/PageLayout";
 
-import logoIMG from '@/../public/logo.png';
+import logoIMG from '@/../public/logo.webp';
 
 export default function HowItWorksSection() {
   return (
     <PageLayout
       title="How It Works"
-      content={
-        <Image
-          src={logoIMG}
-          alt="logo"
-          width={400}
-          height={400}
-        />}
+      // content={
+      //   <Image
+      //     src={logoIMG}
+      //     alt="logo"
+      //     width={400}
+      //     height={400}
+      //     className="rounded-full"
+      //   />}
     >
       <div className="space-y-5 text-base md:text-lg 2xl:text-2xl">
         <p>Bamboo Hibachi brings the hibachi experience to your backyard!</p>

@@ -89,10 +89,10 @@ export default function AppointmentForm({
           fromDate={new Date()}
           selected={date}
           onSelect={(date) => setDate(date)}
-          className="rounded-md border-2 border-primary w-fit bg-white h-fit"
+          className="rounded-md border-2 border-white w-fit h-fit"
         />
 
-        <div className="bg-white w-full rounded-md p-4 border-2 border-primary h-fit">
+        <div className=" w-full rounded-md p-4 border-2 border-white h-fit">
           <div className="font-bold mb-2">Time Slots</div>
 
           {
@@ -243,8 +243,8 @@ export default function AppointmentForm({
           <Button type="submit">Confirm Appointment</Button>
         </div>
       }
-      {state.error && <div className="font-bold text-4xl">Something went wrong, try again later!</div>}
-      {state.message && <div className="font-bold text-4xl">You have successfully made a reservation!</div>}
+      {state.error && <div className="font-bold text-4xl text-white">Something went wrong, try again later!</div>}
+      {state.message && <div className="font-bold text-4xl text-white">You have successfully made a reservation!</div>}
     </form>
   )
 }

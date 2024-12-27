@@ -35,7 +35,7 @@ function LocationItem({
         height={200}
         className="w-full rounded-lg "
       />
-      <div className="text-5xl md:text-8xl mt-4 text-main-red hover:text-primary transition-all duration-150 font-bold">{location.name}</div>
+      <div className="text-5xl md:text-8xl mt-4  hover:text-main-red transition-all duration-150 font-bold">{location.name}</div>
       <div className="opacity-50">zip-code: {location.zip_code}</div>
     </Link>
   )

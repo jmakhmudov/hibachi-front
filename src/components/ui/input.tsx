@@ -34,7 +34,7 @@ export default function Input({
         placeholder={label}
         onChange={handleInput}
         value={props.value ?? input}
-        className={`border-2 border-primary rounded-2xl bg-white px-4 h-11 w-full ${props.className}`}
+        className={`border-2 border-primary rounded-2xl bg-white bg-opacity-15 px-4 h-11 w-full ${props.className}`}
       />
       {
         infoText &&

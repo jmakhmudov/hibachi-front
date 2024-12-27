@@ -1,16 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Extreme:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #FDEFDB;
-  --foreground: #1F2820;
+  /* --background: #FFFFFF;
+  --foreground: #1F2820; */
+  --background: #000000;
+  --foreground: #FFFFFF;
 }
 
 * {
   box-sizing: border-box;
+}
+
+.pathway {
+  font-family: 'Pathway', sans-serif;
 }
 
 body {
