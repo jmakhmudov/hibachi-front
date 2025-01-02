@@ -19,7 +19,7 @@ export default async function ProteinSection() {
             <ul className="list-disc pl-5 text-lg">
               {
                 meals.map(meal => (
-                  <li>{meal.name}</li>
+                  <li key={meal.name}>{meal.name}</li>
                 ))
               }
             </ul>
@@ -30,7 +30,7 @@ export default async function ProteinSection() {
             <ul className="list-disc pl-5 text-lg">
               {
                 additional_meals.map(meal => (
-                  <li>{meal.name} <span className="font-bold text-main-red">${Number(meal.price).toLocaleString("us")}</span></li>
+                  <li key={meal.name}>{meal.name} <span className="font-bold text-main-red">${Number(meal.price).toLocaleString("us")}</span></li>
                 ))
               }
             </ul>
@@ -39,7 +39,8 @@ export default async function ProteinSection() {
 
         <div className=" w-full">
           <div className="pathway text-3xl uppercase font-black">What's included</div>
-          <p>2 Proteins Per Person</p>
+          <p>2 PER PERSON</p>
+          <p>CHOICE OF 2 PROTEINS, FRIED RICE, VEGETABLES, AND A SIDE SALAD with signature dressing.</p>
         </div>
       </div>
     </PageLayout>

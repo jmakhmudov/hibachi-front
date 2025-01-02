@@ -16,7 +16,7 @@ export default function ContactsSection() {
   return (
     <PageLayout title="Contact Us" id="contacts">
       <div className="w-full">
-        <p className="md:w-1/3">Have questions or need assistance? Reach out using the form below, and our team will get back to you promptly. We&#39re here to help!</p>
+        <p className="md:w-1/3">Have questions or need assistance? Reach out using the form below, and our team will get back to you promptly. We're here to help!</p>
 
         <form action={contact} className="mt-5 space-y-5 w-full">
           <div className="space-y-2">
