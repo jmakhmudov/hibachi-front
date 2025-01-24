@@ -26,7 +26,7 @@ const faqs = [
   {
     question: "How much does it cost?",
     answer:
-      "Our service has a base price of $50 per person with a $500 minimum. Gratuity for the chef is not included; the suggested gratuity is 20% of the total bill. A $150 deposit is required at booking, with the balance due on the day of the event.",
+      "Our service has a base price of $60 per person with a $600 minimum. Gratuity for the chef is not included; the suggested gratuity is 20% of the total bill. A $150 deposit is required at booking, with the balance due on the day of the event.",
   },
   {
     question: "What’s included in the hibachi experience?",
@@ -68,7 +68,7 @@ const faqs = [
   {
     question: "How can I book Bamboo Hibachi Catering?",
     answer:
-      "Booking is simple:\n\n- Call us at 817-600-4955.\n- Visit our website at [your website link].\n- Email us at [your email address].\n\nWe’ll guide you every step of the way to make your event a success!",
+      "Booking is simple:\n\n- Call us at 817-600-4955.\n- Visit our website at hibachibybamboo.com.\n- Email us at contact@hibachibybamboo.com.\n\nWe’ll guide you every step of the way to make your event a success!",
   },
 ];
 
