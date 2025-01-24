@@ -27,6 +27,7 @@ export default function HeroSection({
         <video
           className="h-[50vh] md:h-[80vh] w-full object-cover rounded-2xl"
           src={videos[0]?.video_file}
+          controls={false}
           autoPlay
           muted
           loop
