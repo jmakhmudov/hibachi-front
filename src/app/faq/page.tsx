@@ -49,7 +49,7 @@ const faqs = [
   },
   {
     question: "Is there a minimum or maximum guest count?",
-    answer: "Yes, we require a minimum of 10 guests or a $500 minimum. We charge $50 per person.",
+    answer: "Yes, we require a minimum of 10 guests or a $600 minimum. We charge $60 per person.",
   },
   {
     question: "Do you require a deposit?",
