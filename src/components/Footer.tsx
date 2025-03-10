@@ -27,7 +27,7 @@ export default function Footer() {
 
 
           <div className="mt-5 text-white/60 text-right">
-            <p>Call us: <span className="font-semibold text-white/100">+1 (817) 6005955</span></p>
+            <p>Call us: <span className="font-semibold text-white/100">+1 (817) 6004955</span></p>
             <p>Email us: <span className="font-semibold text-white/100">contact@hibachibybamboo.com</span></p>
             <Link className=" mt-5 block text-main-red" href='https://www.instagram.com/Bamboo_hibachi/' target="_blank">Instagram</Link>
           </div>
