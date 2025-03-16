@@ -6,7 +6,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const locations: LocationType[] = await locationsAPI.getAll();
 
   const locationsPages: MetadataRoute.Sitemap = locations.map(({ slug }) => ({
-    url: `https://hibachibybamboo.com/appointment/${slug}/`,
+    url: `https://hibachibybamboo.com/appointment/${slug}`,
   }));
 
   return [
