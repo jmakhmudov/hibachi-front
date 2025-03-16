@@ -5,8 +5,8 @@ import { MetadataRoute } from "next";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const locations: LocationType[] = await locationsAPI.getAll();
 
-  const locationsPages: MetadataRoute.Sitemap = locations.map(({ id }) => ({
-    url: `https://hibachibybamboo.com/appointment/${id}/`,
+  const locationsPages: MetadataRoute.Sitemap = locations.map(({ slug }) => ({
+    url: `https://hibachibybamboo.com/appointment/${slug}/`,
   }));
 
   return [

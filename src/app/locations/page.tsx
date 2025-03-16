@@ -32,7 +32,7 @@ function LocationItem({
 }) {
 
   return (
-    <Link href={`/appointment/${location.id}`} className="select-none w-full md:w-[550px] cursor-pointer ">
+    <Link href={`/appointment/${location.slug}`} className="select-none w-full md:w-[550px] cursor-pointer ">
       <Image
         alt={location.name}
         src={location.image}

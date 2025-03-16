@@ -9,9 +9,9 @@ export const bookingAPI = {
     });
   },
 
-  getTimeSlots: async (date: string, locationId: number) => {
+  getTimeSlots: async (date: string, locationSlug: string) => {
 
-    return fetchApi(`/booking/availability/?date=${date}&location=${locationId}`, {
+    return fetchApi(`/booking/availability/?date=${date}&location_slug=${locationSlug}`, {
       method: 'GET',  
     });
   },

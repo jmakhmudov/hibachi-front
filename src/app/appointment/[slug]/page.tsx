@@ -6,15 +6,15 @@ import { LocationType } from "@/types";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-type Params = { params: Promise<{ locationId: string }> };
+type Params = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const locations: LocationType[] = await locationsAPI.getAll();
-  const locationId = Number((await params).locationId);
+  const { slug } = await params;
 
   const location = await Promise.all(
     locations.map(async (l) => {
-      if (l.id === locationId) return l;
+      if (l.slug === slug) return l;
       return null;
     })
   ).then((results) => results.find((l) => l !== null));
@@ -26,11 +26,12 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function AppointmentPage({ params }: Params) {
   const locations: LocationType[] = await locationsAPI.getAll();
-  const locationId = Number((await params).locationId);
+  const { slug } = await params;
+  console.log(locations)
 
   const location = await Promise.all(
     locations.map(async (l) => {
-      if (l.id === locationId) return l;
+      if (l.slug === slug) return l;
       return null;
     })
   ).then((results) => results.find((l) => l !== null));
@@ -49,7 +50,7 @@ export default async function AppointmentPage({ params }: Params) {
           <div className="text-sm opacity-50">{location.zip_code}</div>
         </div>
 
-        <AppointmentForm meals={meals} locationId={location.id} />
+        <AppointmentForm meals={meals} locationSlug={location.slug} />
       </PageLayout>
     </div>
   )

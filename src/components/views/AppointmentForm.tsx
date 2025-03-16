@@ -1,7 +1,7 @@
 'use client'
 
 import { bookingAPI } from "@/api/booking";
-import { confirmAppointment } from "@/app/appointment/[locationId]/actions";
+import { confirmAppointment } from "@/app/appointment/[slug]/actions";
 import { AppointmentType, Meal, TimeSlotType } from "@/types";
 import { heardBy } from "@/utils/constants";
 import { useActionState, useEffect, useState, useTransition } from "react";
@@ -21,23 +21,23 @@ const convertTo12HourFormat = (time: string): string => {
 
 function toLocaleISOString(date: Date) {
   function pad(number: any) {
-      if (number < 10) {
-          return '0' + number;
-      }
-      return number;
+    if (number < 10) {
+      return '0' + number;
+    }
+    return number;
   }
 
   return date.getFullYear() +
-      '-' + pad(date.getMonth() + 1) +
-      '-' + pad(date.getDate())
+    '-' + pad(date.getMonth() + 1) +
+    '-' + pad(date.getDate())
 
 }
 
 export default function AppointmentForm({
-  locationId,
+  locationSlug,
   meals
 }: {
-  locationId: number,
+  locationSlug: string,
   meals: {
     default_meals: Meal[],
     additional_meals: Meal[]
@@ -60,7 +60,9 @@ export default function AppointmentForm({
     setTranstion(() => {
       async function fetchTimeSlots() {
         if (date) {
-          const time_slots = (await bookingAPI.getTimeSlots(toLocaleISOString(date), locationId))
+          console.log("TIMESSSS", locationSlug, date)
+
+          const time_slots = (await bookingAPI.getTimeSlots(toLocaleISOString(date), locationSlug))
             .sort((a: TimeSlotType, b: TimeSlotType) => {
               const timeA = a.time.split(":").map(Number);
               const timeB = b.time.split(":").map(Number);
@@ -77,7 +79,7 @@ export default function AppointmentForm({
       fetchTimeSlots()
     })
 
-  }, [date, state, locationId])
+  }, [date, state, locationSlug])
 
   console.log(timeSlots)
 

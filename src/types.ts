@@ -21,6 +21,7 @@ export interface LocationType {
   name: string;
   zip_code: string;
   image: string;
+  slug: string;
 }
 
 export interface TimeSlotType {
