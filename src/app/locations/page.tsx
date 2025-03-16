@@ -1,8 +1,13 @@
 import { locationsAPI } from "@/api/locations"
 import PageLayout from "@/components/layouts/PageLayout";
 import { LocationType } from "@/types";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Locations"
+};
 
 export default async function LocationsPage() {
   const locations: LocationType[] = await locationsAPI.getAll();
@@ -25,10 +30,10 @@ function LocationItem({
 }: {
   location: LocationType
 }) {
-  
+
   return (
     <Link href={`/appointment/${location.id}`} className="select-none w-full md:w-[550px] cursor-pointer ">
-      <Image 
+      <Image
         alt={location.name}
         src={location.image}
         width={200}

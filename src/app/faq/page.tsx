@@ -1,6 +1,10 @@
-
 import FAQItem from "@/components/ui/faq-item";
+import { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "FAQ"
+};
 
 const faqs = [
   {

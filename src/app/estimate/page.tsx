@@ -4,6 +4,11 @@ import PageLayout from "@/components/layouts/PageLayout";
 import {LocationType, Meal} from "@/types";
 import EstimateForm from "@/components/views/EstimateForm";
 import { pricingAPI } from "@/api/pricing";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Estimate"
+};
 
 export default async function EstimatePage() {
   const locations: LocationType[] = await locationsAPI.getAll();

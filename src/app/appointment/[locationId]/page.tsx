@@ -1,13 +1,30 @@
-import {locationsAPI} from "@/api/locations";
-import {menuAPI} from "@/api/menu";
+import { locationsAPI } from "@/api/locations";
+import { menuAPI } from "@/api/menu";
 import PageLayout from "@/components/layouts/PageLayout";
 import AppointmentForm from "@/components/views/AppointmentForm";
-import {LocationType} from "@/types";
-import {notFound} from "next/navigation";
+import { LocationType } from "@/types";
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 type Params = { params: Promise<{ locationId: string }> };
 
-export default async function AppointmentPage({params}: Params) {
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const locations: LocationType[] = await locationsAPI.getAll();
+  const locationId = Number((await params).locationId);
+
+  const location = await Promise.all(
+    locations.map(async (l) => {
+      if (l.id === locationId) return l;
+      return null;
+    })
+  ).then((results) => results.find((l) => l !== null));
+
+  return {
+    title: `Schedule Appointment in ${location?.name}`
+  }
+}
+
+export default async function AppointmentPage({ params }: Params) {
   const locations: LocationType[] = await locationsAPI.getAll();
   const locationId = Number((await params).locationId);
 
@@ -32,7 +49,7 @@ export default async function AppointmentPage({params}: Params) {
           <div className="text-sm opacity-50">{location.zip_code}</div>
         </div>
 
-        <AppointmentForm meals={meals} locationId={location.id}/>
+        <AppointmentForm meals={meals} locationId={location.id} />
       </PageLayout>
     </div>
   )
