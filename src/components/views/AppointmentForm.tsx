@@ -166,6 +166,34 @@ export default function AppointmentForm({
             required
           />
 
+          <Input
+            label="State"
+            name="state"
+            type="text"
+            required
+          />
+
+          <Input
+            label="City"
+            name="city"
+            type="text"
+            required
+          />
+
+          <Input
+            label="Street"
+            name="street"
+            type="text"
+            required
+          />
+
+          <Input
+            label="Zip code"
+            name="zip_code"
+            type="text"
+            required
+          />
+
           <hr />
 
           <div>
