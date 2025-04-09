@@ -167,8 +167,8 @@ export default function AppointmentForm({
           />
 
           <Input
-            label="State"
-            name="state"
+            label="Street"
+            name="street"
             type="text"
             required
           />
@@ -181,8 +181,8 @@ export default function AppointmentForm({
           />
 
           <Input
-            label="Street"
-            name="street"
+            label="State"
+            name="state"
             type="text"
             required
           />
