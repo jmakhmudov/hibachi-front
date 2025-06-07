@@ -11,6 +11,7 @@ interface SelectProps {
   required?: boolean;
   name?: string;
   className?: string;
+  defaultValue?: string;
 }
 
 export default function CustomSelect({
@@ -21,9 +22,12 @@ export default function CustomSelect({
   required,
   name,
   className,
+  defaultValue
 }: SelectProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(value || "");
+  const [selectedValue, setSelectedValue] = useState(
+    value || defaultValue || ""
+  );
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

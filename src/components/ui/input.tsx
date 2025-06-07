@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { ChangeEvent, useState } from "react";
 
@@ -7,11 +7,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   infoText?: string;
 }
 
-export default function Input({
-  label,
-  infoText,
-  ...props
-}: InputProps) {
+export default function Input({ label, infoText, ...props }: InputProps) {
   const [input, setInput] = useState("");
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -20,13 +16,16 @@ export default function Input({
         return;
       }
     }
-    setInput(e.target.value)
-    if (props.onChange) props.onChange(e)
-  }
+    setInput(e.target.value);
+    if (props.onChange) props.onChange(e);
+  };
 
   return (
     <div className="grid">
-      <label htmlFor={props.name} className="text-sm md:text-base">{label}{props.required && <span className="text-main-red">*</span>}</label>
+      <label htmlFor={props.name} className="text-sm md:text-base">
+        {label}
+        {props.required && <span className="text-main-red">*</span>}
+      </label>
 
       <input
         {...props}
@@ -36,10 +35,9 @@ export default function Input({
         value={props.value ?? input}
         className={`border-2 border-primary rounded-2xl bg-white bg-opacity-15 px-4 h-11 w-full ${props.className}`}
       />
-      {
-        infoText &&
+      {infoText && (
         <div className="text-xs md:text-sm opacity-50 mt-1">{infoText}</div>
-      }
+      )}
     </div>
-  )
+  );
 }
