@@ -38,7 +38,7 @@ function LocationItem({
         src={location.image}
         width={200}
         height={200}
-        className="w-full rounded-lg "
+        className="w-full rounded-lg h-[300px] object-cover hover:scale-105 transition-all duration-150"
       />
       <div className="text-5xl md:text-8xl mt-4  hover:text-main-red transition-all duration-150 font-bold">{location.name}</div>
       <div className="opacity-50">zip-code: {location.zip_code}</div>
