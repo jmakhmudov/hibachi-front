@@ -61,7 +61,10 @@ export default function EstimateForm({
     const totalMealCost = adultCost + kidCost + selectedMealsCost + extraProt;
     const total = totalMealCost + travelCost;
 
-    const tips = total < 600 ? 120 : total * 0.2;
+    const tips =
+      total < pricing.minimum_charge
+        ? pricing.minimum_charge * 0.2
+        : total * 0.2;
 
     setTravelingFees(travelCost);
     setMealTotal(total);
@@ -195,9 +198,14 @@ export default function EstimateForm({
             Total cash for meal (Traveling fees are included already)
           </div>
           <div className="font-bold text-4xl">
-            $ {mealTotal < 600 ? 600 : mealTotal.toFixed(0)}
+            ${" "}
+            {mealTotal < pricing.minimum_charge
+              ? pricing.minimum_charge
+              : mealTotal.toFixed(0)}
           </div>
-          <p className="opacity-60 text-sm">Minimum order is $600</p>
+          <p className="opacity-60 text-sm">
+            Minimum order is ${pricing.minimum_charge}
+          </p>
         </div>
 
         <div>
