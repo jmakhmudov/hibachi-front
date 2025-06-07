@@ -9,13 +9,15 @@ import { useState, useEffect } from "react";
 export default function EstimateForm({
   locations,
   additional_meals,
-  pricing
+  pricing,
 }: {
   locations: LocationType[];
   additional_meals: Meal[];
   pricing: PricingDetails;
 }) {
-  const [selectedMeals, setSelectedMeals] = useState<{ meal_id: number; quantity: number }[]>([]);
+  const [selectedMeals, setSelectedMeals] = useState<
+    { meal_id: number; quantity: number }[]
+  >([]);
   const [adultsQty, setAdultsQty] = useState(0);
   const [kidsQty, setKidsQty] = useState(0);
   const [extraProteins, setExtraProteins] = useState(0);
@@ -28,7 +30,9 @@ export default function EstimateForm({
     if (isSelected) {
       setSelectedMeals((prev) => [...prev, { meal_id, quantity: 1 }]);
     } else {
-      setSelectedMeals((prev) => prev.filter((meal) => meal.meal_id !== meal_id));
+      setSelectedMeals((prev) =>
+        prev.filter((meal) => meal.meal_id !== meal_id)
+      );
     }
   };
 
@@ -55,11 +59,12 @@ export default function EstimateForm({
     }, 0);
 
     const totalMealCost = adultCost + kidCost + selectedMealsCost + extraProt;
+    const total = totalMealCost + travelCost;
 
-    const tips = (totalMealCost + travelCost) * 0.2;
+    const tips = total < 600 ? 120 : total * 0.2;
 
     setTravelingFees(travelCost);
-    setMealTotal(totalMealCost + travelCost);
+    setMealTotal(total);
     setTipsSuggestion(tips);
   };
 
@@ -110,7 +115,9 @@ export default function EstimateForm({
               <div key={meal.name}>
                 <div className="flex items-center gap-3">
                   <Checkbox
-                    onStatusChange={(status) => handleMealSelect(meal.id, status)}
+                    onStatusChange={(status) =>
+                      handleMealSelect(meal.id, status)
+                    }
                     label={meal.name}
                   />
                   <div className="text-main-red text-sm font-semibold">
@@ -119,7 +126,9 @@ export default function EstimateForm({
                 </div>
 
                 <div
-                  data-selected={selectedMeals.some((selectedMeal) => selectedMeal.meal_id === meal.id)}
+                  data-selected={selectedMeals.some(
+                    (selectedMeal) => selectedMeal.meal_id === meal.id
+                  )}
                   className="hidden data-[selected=true]:block mt-2"
                 >
                   <Input
@@ -145,13 +154,20 @@ export default function EstimateForm({
         <Select
           label="Closest location"
           name="closest_location"
-          options={locations.map((l) => ({ value: l.id.toString(), label: l.name }))}
+          options={locations.map((l) => ({
+            value: l.id.toString(),
+            label: l.name,
+          }))}
           required
         />
 
         <Input
           label="How far from selected location?"
-          infoText={pricing.free_miles > 0 ? `In miles, first ${pricing.free_miles} miles are free` : "In miles"}
+          infoText={
+            pricing.free_miles > 0
+              ? `In miles, first ${pricing.free_miles} miles are free`
+              : "In miles"
+          }
           type="number"
           name="how_far"
           min={0}
@@ -175,13 +191,22 @@ export default function EstimateForm({
         </div>
 
         <div>
-          <div className="font-medium text-sm md:text-base">Total cash for meal (Traveling fees are included already)</div>
-          <div className="font-bold text-4xl">$ {mealTotal.toFixed(0)}</div>
+          <div className="font-medium text-sm md:text-base">
+            Total cash for meal (Traveling fees are included already)
+          </div>
+          <div className="font-bold text-4xl">
+            $ {mealTotal < 600 ? 600 : mealTotal.toFixed(0)}
+          </div>
+          <p className="opacity-60 text-sm">Minimum order is $600</p>
         </div>
 
         <div>
-          <div className="font-medium text-sm md:text-base">20% Tips suggestion</div>
-          <div className="font-bold text-4xl">$ {tipsSuggestion.toFixed(0)}</div>
+          <div className="font-medium text-sm md:text-base">
+            20% Tips suggestion
+          </div>
+          <div className="font-bold text-4xl">
+            $ {tipsSuggestion.toFixed(0)}
+          </div>
         </div>
       </div>
     </form>
