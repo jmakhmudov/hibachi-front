@@ -6,20 +6,20 @@ const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
+        source: "/api/:path*",
         destination: `${API_URL}/api/:path*/`,
       },
       {
-        source: '/media/:path*',
+        source: "/media/:path*",
         destination: `${API_URL}/media/:path*`,
       },
-    ]
+    ];
   },
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: '*',
+        protocol: "https",
+        hostname: "*",
       },
     ],
   },
@@ -27,15 +27,15 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: '/:path*',
+        source: "/:path*",
         headers: [
           {
-            key: 'Cache-Control',
-            value: 'no-store',
+            key: "Cache-Control",
+            value: "no-store",
           },
         ],
       },
-    ]
+    ];
   },
 };
 
