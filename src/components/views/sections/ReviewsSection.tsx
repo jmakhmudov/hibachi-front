@@ -128,7 +128,7 @@ export default async function ReviewsSection() {
   //         "photosUri": "https://www.google.com/maps/place//data=!4m3!3m2!1s0x864e7bb4b29951d1:0x29ea1ccf00e7a4c2!10e5?g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYBCAA"
   //     }
   // }`);
-
+  if (!placeData || placeData.error) return null;
   return (
     <PageLayout title="Reviews">
       <div className="grid md:grid-cols-3 gap-5">
