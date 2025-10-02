@@ -4,7 +4,12 @@ import { BsGoogle, BsStar, BsStarFill } from "react-icons/bs";
 
 export default async function ReviewsSection() {
   const placeData = await fetch(
-    `https://places.googleapis.com/v1/places/ChIJ0VGZsrR7ToYRwqTnAM8c6ik?key=${process.env.GOOGLE_MAPS_KEY}&fields=id,googleMapsLinks,displayName,rating,userRatingCount,reviews`
+    `https://places.googleapis.com/v1/places/ChIJ0VGZsrR7ToYRwqTnAM8c6ik?key=${process.env.GOOGLE_MAPS_KEY}&fields=id,googleMapsLinks,displayName,rating,userRatingCount,reviews`,
+    {
+      next: {
+        revalidate: 864000,
+      },
+    }
   ).then((res) => res.json());
   //   const placeData = JSON.parse(`{
   //     "id": "ChIJ0VGZsrR7ToYRwqTnAM8c6ik",
