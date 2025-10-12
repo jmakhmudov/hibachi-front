@@ -11,20 +11,23 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: "https://hibachibybamboo.com/"
+      url: "https://hibachibybamboo.com/",
     },
     {
-      url: "https://hibachibybamboo.com/about-us"
+      url: "https://hibachibybamboo.com/food-truck",
     },
     {
-      url: "https://hibachibybamboo.com/estimate"
+      url: "https://hibachibybamboo.com/about-us",
     },
     {
-      url: "https://hibachibybamboo.com/faq"
+      url: "https://hibachibybamboo.com/estimate",
     },
     {
-      url: "https://hibachibybamboo.com/locations"
+      url: "https://hibachibybamboo.com/faq",
     },
-    ...locationsPages
-  ]
+    {
+      url: "https://hibachibybamboo.com/locations",
+    },
+    ...locationsPages,
+  ];
 }

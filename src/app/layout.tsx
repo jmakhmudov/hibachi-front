@@ -4,7 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-import { Inter, Pathway_Extreme } from 'next/font/google';
+import { Inter, Pathway_Extreme } from "next/font/google";
 import { LocationType } from "@/types";
 import { locationsAPI } from "@/api/locations";
 
@@ -27,9 +27,10 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: {
       default: "Bamboo Hibachi - Fire, Flavor & Authentic Hibachi Dining",
-      template: "%s - Bamboo Hibachi"
+      template: "%s - Bamboo Hibachi",
     },
-    description: "Experience the finest hibachi grilling at Bamboo Hibachi. Discover bold flavors, fresh ingredients, and unforgettable dining moments.",
+    description:
+      "Experience the finest hibachi grilling at Bamboo Hibachi. Discover bold flavors, fresh ingredients, and unforgettable dining moments.",
     keywords: [
       "Bamboo Hibachi",
       "Hibachi By Bamboo",
@@ -48,12 +49,12 @@ export async function generateMetadata(): Promise<Metadata> {
       "Japanese grill",
       "Seafood hibachi",
       "Steak and shrimp hibachi",
-      ...locationKeywords
+      ...locationKeywords,
     ],
     twitter: {
-      card: "summary_large_image"
-    }
-  }
+      card: "summary_large_image",
+    },
+  };
 }
 
 export default function RootLayout({
