@@ -67,7 +67,7 @@ export default function RootLayout({
       <body
         className={`antialiased relative w-screen ${pathway.className} ${inter.className}`}
       >
-        <main className="px-5 md:px-12 min-h-screen ">
+        <main className="px-5 md:px-12 min-h-screen w-screen">
           <Header />
           {children}
         </main>
